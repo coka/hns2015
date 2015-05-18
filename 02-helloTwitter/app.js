@@ -7,9 +7,8 @@ var client = new Twitter({
   access_token_secret: 'vn8ku4ERGMMrG4FmCp7xJKDuofKqomlldgBwWwQfT6kz8'
 });
 
-var params = {screen_name: 'nodejs'};
-client.get('statuses/user_timeline', params, function(error, tweets, response){
-  if (!error) {
-    console.log(tweets);
-  }
+client.post('statuses/update', {status: 'test'},  function(error, tweet, response){
+  if(error) throw error;
+  console.log(tweet);  // Tweet body.
+  console.log(response);  // Raw response object.
 });
