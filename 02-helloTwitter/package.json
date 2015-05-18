@@ -1,0 +1,8 @@
+{
+  "name": "02-helloTwitter",
+  "version": "0.1.0",
+  "description": "tweets a test message",
+  "main": "app.js",
+  "engines": { "node": ">=0.10.0" },
+  "dependencies": { "twitter": "1.2.5" }
+}
