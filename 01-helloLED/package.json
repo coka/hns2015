@@ -1,0 +1,8 @@
+{
+  "name": "01-helloLED",
+  "version": "0.1.0",
+  "description": "blinks the LED",
+  "main": "app.js",
+  "engines": { "node": ">=0.10.0" },
+  "dependencies": { "cylon-intel-iot": "0.5.0" }
+}
