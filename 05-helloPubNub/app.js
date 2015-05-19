@@ -4,12 +4,18 @@ var pubnub = require("pubnub")({
     subscribe_key : "sub-c-ace45594-fe18-11e4-bb05-02ee2ddab7fe"
 });
 
-pubnub.publish({
-	channel : 'novisadhardnsoft' ,
-	message : "PROBA!",
-	callback : function (e) {console.log ( "uspelo :D",e);},
-	error : function (e) {console.log ("Nije uspelo! :(",e);} 
-})
+
+var msg = {"Test!"};
+function(error){
+	if(error) {console.log('Fail!\n' + error);}
+	else
+	{
+		pubnub.publish({
+		channel : 'novisadhardnsoft' ,
+		message : msg,
+		callback : function (e) {console.log ( "uspelo :D",e);},
+		error : function (e) {console.log ("Nije uspelo! :(",e);}} 
+})}
 
 
 
