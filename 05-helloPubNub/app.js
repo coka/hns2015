@@ -5,7 +5,8 @@ var pubnub = require("pubnub")({
 });
 
 
-var msg = {"Test!"};
+var msg = "Test!";
+
 function(error){
 	if(error) {console.log('Fail!\n' + error);}
 	else
