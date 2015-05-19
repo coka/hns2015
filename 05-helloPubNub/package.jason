@@ -1,0 +1,8 @@
+{
+  "name": "05-helloPubNub",
+  "version": "0.1.0",
+  "description": "Stream data to PubNub",
+  "main": "app.js",
+  "engines": { "node": ">=0.10.0 <0.11.11" },
+  "dependencies": { "cylon": "*","pubnub" : "*" }
+}
