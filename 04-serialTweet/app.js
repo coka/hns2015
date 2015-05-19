@@ -22,10 +22,9 @@ serialPort.open(function(error) {
       var divisor = 30;
       if (data % divisor === 0)
       {
+        console.log('TWEETING ' + data + '!');
         client.post('statuses/update', {status: String(data)},  function(error, tweet, response) {
           if (error) { throw error; }
-          console.log(tweet);
-          console.log(response);
         });
       }
       else { console.log(data + ' is not disible by ' + divisor + '.'); }
