@@ -1,7 +1,7 @@
 var SerialPort = require("serialport").SerialPort;
 var port = "/dev/ttyMFD1";
 var serialPort = new SerialPort(port, {
-  baudrate: 9600
+  baudrate: 115200
 }, false);
 
 console.log("Open port: "+ port);
