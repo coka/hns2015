@@ -1,0 +1,9 @@
+{
+  "name": "03-helloSerial",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Logs data from Arduino RX/TX.",
+  "main": "app.js",
+  "engines": { "node": ">=0.10.0 <0.11.11" },
+  "dependencies": { "serialport": "1.7.1" }
+}
