@@ -1,0 +1,13 @@
+{
+  "name": "04-serialTweet",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Tweets serial reads using a rule.",
+  "main": "app.js",
+  "engines": { "node": ">=0.10.0 <0.11.11" },
+  "dependencies":
+  {
+    "twitter": "1.2.5",
+    "serialport": "1.7.1"
+  }
+}
