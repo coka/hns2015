@@ -5,12 +5,22 @@ var pubnub = require("pubnub")({
 });
 
 // U data upisujemo message koji ce biti poslat na pubnub
-  var msg = "Sve sto smo dobili sa seriske";
+	var temp 
+  	var msg = {"temp1": temp };
 
 pubnub.subscribe ({
   	channel: 'my_channel',
    	message: function(data){console.log(data);}
 });
+
+var t=0;
+while(t<100)
+{
+    temp ++
+    if(temp%10){
+        t++;
+    };
+};
 
 for(var i=0;i<50;i++){
   pubnub.publish({
@@ -19,7 +29,6 @@ for(var i=0;i<50;i++){
   	callback  : function(e) { console.log( "SUCCESS!", e ); },
     error     : function(e) { console.log( "FAILED! RETRY PUBLISH!", e ); }
 });
-  sleep(1000);
 };
   
 
