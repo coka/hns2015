@@ -12,12 +12,15 @@ pubnub.subscribe ({
    	message: function(data){console.log(data);}
 });
 
-  pubnub.publis({
+for(var i=0;i<50;i++){
+  pubnub.publish({
   	channel: 'my_channel',
   	message: msg,
   	callback  : function(e) { console.log( "SUCCESS!", e ); },
     error     : function(e) { console.log( "FAILED! RETRY PUBLISH!", e ); }
 });
+  sleep(1000);
+};
   
 
   
