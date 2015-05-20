@@ -20,14 +20,14 @@ serialPort.open(function(error) {
     console.log('Successfully opened the port.');
     serialPort.on('data', function(data) {
       var divisor = 30;
-      if (data % divisor === 0)
-      {
-        console.log('TWEETING ' + data + '!');
+
+
+        console.log('TWEETING ' + data + Date.now() + '!');
         client.post('statuses/update', {status: String(data)},  function(error, tweet, response) {
-          if (error) { throw error; }
+          if (error) { console.log('jebada'); }
         });
-      }
-      else { console.log(data + ' is not disible by ' + divisor + '.'); }
+
+
     });
   }
 });
