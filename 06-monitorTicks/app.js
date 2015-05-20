@@ -11,11 +11,10 @@ pubnub.subscribe ({
   	channel: 'my_channel',
    	message: function(data){console.log(data);}
 });
-
+	var temp;
+	
 
 for(var i=0;i<50;i++){
-
-	var temp;
 	var msg = {"temp1": temp };
 	temp++;
  	pubnub.publish({
