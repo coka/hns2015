@@ -1,0 +1,8 @@
+{
+  "name": "06-pubnubTicks",
+  "version": "0.1.0",
+  "description": "Push a linear graph to PubNub",
+  "main": "app.js",
+  "engines": { "node": ">=0.10.0 <0.11.11" },
+  "dependencies": { "pubnub" : "3.7.11" }
+}
