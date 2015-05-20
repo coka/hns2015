@@ -5,25 +5,20 @@ var pubnub = require("pubnub")({
 });
 
 // U data upisujemo message koji ce biti poslat na pubnub
-	var temp 
-  	var msg = {"temp1": temp };
+	
 
 pubnub.subscribe ({
   	channel: 'my_channel',
    	message: function(data){console.log(data);}
 });
 
-var t=0;
-while(t<100)
-{
-    temp ++
-    if(temp%10){
-        t++;
-    };
-};
 
 for(var i=0;i<50;i++){
-  pubnub.publish({
+
+	var temp;
+	var msg = {"temp1": temp };
+	temp++;
+ 	pubnub.publish({
   	channel: 'my_channel',
   	message: msg,
   	callback  : function(e) { console.log( "SUCCESS!", e ); },
