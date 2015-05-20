@@ -4,22 +4,27 @@ var pubnub = require("pubnub")({
     subscribe_key : "sub-c-fcb17716-fefc-11e4-bb05-02ee2ddab7fe"
 });
 
-// U data upisujemo message koji ce biti poslat na pubnub
-	
+// Sending data needs to be in JSON format object
+// smting like --->>> var data = {">> variable name <<" : ">> variable data<<", ">> variable name <<" : ">> variable data<<",
+// ">> variable name <<" : ">> variable data<<",">> variable name <<" : ">> variable data<<"}
 
+
+// First u need to subscribe to channel then send the data
 pubnub.subscribe ({
   	channel: 'my_channel',
    	message: function(data){console.log(data);}
 });
-	var temp;
+
+
+// testing var only -->>	var temp = 0;
 	
 
-for(var i=0;i<50;i++){
-	var msg = {"temp1": temp };
-	temp++;
+for(var i=;i<50;i++){				//Testing only
+	var msg = {"temp1": temp };		//Testing only
+	temp++;							//Testing only
  	pubnub.publish({
-  	channel: 'my_channel',
-  	message: msg,
+  	channel : 'my_channel',
+  	message : msg,
   	callback  : function(e) { console.log( "SUCCESS!", e ); },
     error     : function(e) { console.log( "FAILED! RETRY PUBLISH!", e ); }
 });
