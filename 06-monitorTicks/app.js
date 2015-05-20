@@ -16,7 +16,7 @@ pubnub.subscribe ({
 });
 
 
-// testing var only -->>	var temp = 0;
+	var temp = 0;					//Testing only
 	
 
 for(var i=;i<50;i++){				//Testing only
