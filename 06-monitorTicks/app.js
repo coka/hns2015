@@ -7,12 +7,20 @@ var pubnub = require("pubnub")({
 // U data upisujemo message koji ce biti poslat na pubnub
   var msg = "Sve sto smo dobili sa seriske"
 
+pubnub.subscribe ({
+  	channel: 'Live',
+  	connect: function(res){
+  		console.log('connected');
+  	},
+  	disconnect: function(res){console.log('disconnected');},
+  	reconnect: function(res){conosle.log('reconnecting to pubnub')},
+
+  	message: function(data){console.log(data)}
+  });
+
   pubnub.publis({
   	channel: 'Live',
   	message: msg
   });
 
-  pubnub.subscribe ({
-  	channel: 'Live',
-  	message: function(data){console.log(data)}
-  });
+  
