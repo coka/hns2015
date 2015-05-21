@@ -46,3 +46,10 @@ void RFIDI()
   mfrc522.PICC_HaltA();
   mfrc522.PCD_StopCrypto1();
 }
+
+void MAG()
+{
+  int x = analogRead(PinMagnet);
+  long jedno = x - NOFIELD;
+  long MAGNET = jedno * TOMILLIGAUSS / 1000;
+}

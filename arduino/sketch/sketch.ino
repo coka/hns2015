@@ -1,3 +1,6 @@
+#define NOFIELD 505L
+#define TOMILLIGAUSS 1953L
+
 #include <IRremote.h>
 
 #include <SPI.h>
@@ -7,6 +10,8 @@
 #define RST_PIN 34
 
 /**** globals ****/
+int PinMagnet = A1;
+long MAGNET;
 MFRC522 mfrc522(SS_PIN, RST_PIN);
 byte RFID[10]={0,0,0,0,0,0,0,0,0,0};
 //SOUND
@@ -77,6 +82,7 @@ void READ_SEN()
   HUMIDITY();
   SOUND();
   RFIDI();
+  MAG();
 }
 
 
@@ -85,6 +91,9 @@ void setup()
 {
   init_interrupts();
   Serial.begin(115200);
+
+  // MAGNET
+  pinMode(PinMagnet, INPUT);
 
   // IR
   irrecv.enableIRIn();
