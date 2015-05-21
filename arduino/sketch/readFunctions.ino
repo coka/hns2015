@@ -51,5 +51,5 @@ void MAG()
 {
   int x = analogRead(PinMagnet);
   long jedno = x - NOFIELD;
-  long MAGNET = jedno * TOMILLIGAUSS / 1000;
+  MAGNET = jedno * TOMILLIGAUSS / 1000;
 }
