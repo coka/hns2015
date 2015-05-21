@@ -28,7 +28,7 @@ var channelName = 'my_channel'
 PubNub.subscribe
 ({
   channel: channelName,
-  /* message: function(data) { console.log(data); } */ // response log
+  message: function(data) { console.log(data); } // response log
 });
 
 // globals
@@ -38,7 +38,7 @@ console.log('Opening a port at '+ port + '...'); // checkpoint
 
 var parseSerialData = function(dataString, tagArray)
 {
-  // TODO: var output; (JSON)
+  var output = {};
   for (i = 0; i < tagArray.length; i++)
   {
     // TODO: parser ignore logic
@@ -46,15 +46,14 @@ var parseSerialData = function(dataString, tagArray)
     var split = dataString.split(tag);
     var value = split[1];
     dataString = split[2];
-    console.log(tag + ":" + value); // this should be output+=...
+    output[tag] = value;
   }
-  console.log("");
-  // return output;
+  return output;
 };
 
 var publishToPubNub = function(messageString)
 {
-  pubnub.publish
+  PubNub.publish
   ({
     channel  : channelName,
     message  : messageString,
@@ -65,8 +64,8 @@ var publishToPubNub = function(messageString)
 
 var serialEvent = function(data) // callback argument
 {
-  /* var parsedData = */ parseSerialData(String(data), tags);
-  /* publishToPubNub(parsedData); */
+  var parsedData = parseSerialData(String(data), tags);
+  publishToPubNub(parsedData);
 };
 
 // upon receving data through a serial port
