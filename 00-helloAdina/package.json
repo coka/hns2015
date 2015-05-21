@@ -1,0 +1,13 @@
+{
+  "name": "00-helloAdina",
+  "version": "0.1.0",
+  "description": "Put it all together. :-)",
+  "main": "Final.js",
+  "engines": { "node": ">=0.10.0 <0.11.11" },
+  "dependencies":
+  {
+    "serialport": "1.7.1",
+    "pubnub" : "3.7.11",
+    "twitter": "1.2.5"
+  }
+}
