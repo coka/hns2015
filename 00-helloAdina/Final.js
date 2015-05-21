@@ -32,7 +32,7 @@ PubNub.subscribe
 });
 
 // globals
-var tags = ["TEMP", "KORAK", "INFR", "HUMY", "SOUND", "RFID"];
+var tags = ["TEMP", "KORAK", "INFR", "HUMY", "SOUND", "RFID", "TREASURE"];
 
 console.log('Opening a port at '+ port + '...'); // checkpoint
 
@@ -48,6 +48,7 @@ var parseSerialData = function(dataString, tagArray)
     dataString = split[2];
     console.log(tag + ":" + value); // this should be output+=...
   }
+  console.log("");
   // return output;
 };
 
@@ -64,7 +65,7 @@ var publishToPubNub = function(messageString)
 
 var serialEvent = function(data) // callback argument
 {
-  /* var parsedData = */ parseSerialData(data, tagArray);
+  /* var parsedData = */ parseSerialData(String(data), tags);
   /* publishToPubNub(parsedData); */
 };
 
