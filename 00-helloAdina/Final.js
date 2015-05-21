@@ -24,6 +24,12 @@ var PubNub = require('pubnub')
   publish_key   : 'pub-c-b38d8e57-ce7b-4896-9795-db9a2c494e1c',
   subscribe_key : 'sub-c-fcb17716-fefc-11e4-bb05-02ee2ddab7fe'
 });
+var channelName = 'my_channel'
+PubNub.subscribe
+({
+  channel: channelName,
+  /* message: function(data) { console.log(data); } */ // response log
+});
 
 // globals
 var tags = ["TEMP", "KORAK", "INFR", "HUMY", "SOUND", "RFID"];
@@ -33,10 +39,10 @@ console.log('Opening a port at '+ port + '...'); // checkpoint
 var parseSerialData = function(dataString, tagArray)
 {
   // TODO: var output; (JSON)
-  for (i = 0; i < tags.length; i++)
+  for (i = 0; i < tagArray.length; i++)
   {
     // TODO: parser ignore logic
-    var tag = tags[i];
+    var tag = tagArray[i];
     var split = dataString.split(tag);
     var value = split[1];
     dataString = split[2];
@@ -45,17 +51,21 @@ var parseSerialData = function(dataString, tagArray)
   // return output;
 };
 
+var publishToPubNub = function(messageString)
+{
+  pubnub.publish
+  ({
+    channel  : channelName,
+    message  : messageString,
+    callback : function(e) { console.log('Publish successful!', e); },
+    error    : function(e) { console.log('Publish failed!', e); }
+  });
+};
+
 var serialEvent = function(data) // callback argument
 {
-  console.log('Data recived: ' + data);
-  for (i = 0; i < tags.length; i++)
-  {
-   var tag = tags[i];
-   var split = data.split(tag);
-   var value = split[1];
-   data= split[2];
-   console.log(tag + ":" + value);
- }
+  /* var parsedData = */ parseSerialData(data, tagArray);
+  /* publishToPubNub(parsedData); */
 };
 
 // upon receving data through a serial port
