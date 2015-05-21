@@ -97,7 +97,7 @@ serialPort.open(function (error)
 var tweet_summary = function()
 {
   // TODO
-  var tweetMsgMin = {'You can watch our data stream at freeboard.io/board/L787NR'};
+  var tweetMsgMin = {'You can watch our data stream at freeboard.io/board/L787NR'}; // Treba promenuti na live tablu koja ce biti
   client.post('statues/update', {status: tweetMsgMin)}, function(error,tweet,response){
     if(error) throw error;
     console.log(tweet);
