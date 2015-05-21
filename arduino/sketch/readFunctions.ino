@@ -22,11 +22,7 @@ void STEPS()
 
 void INFRA()
 {
-  if (irrecv.decode(&results))
-  {
-    INFR = results.value;
-    irrecv.resume(); // Receive the next value
-  }
+  if (irrecv.decode(&results)) { irrecv.resume(); }
 }
 
 void HUMIDITY()

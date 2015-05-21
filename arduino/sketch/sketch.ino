@@ -97,7 +97,7 @@ void setup()
 
   // IR
   irrecv.enableIRIn();
-  pinMode(PIN, INPUT);
+  pinMode(PIN, INPUT); // not IR-related
 
   // RFID
   SPI.begin();
