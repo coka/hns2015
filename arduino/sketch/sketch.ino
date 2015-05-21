@@ -20,7 +20,7 @@ int SAUND = 0;
 float val = 0;
 float RH = 0;
 //STEP
-#define PIN 2
+#define PIN 5
 int STEP = 0;
 //INFR
 int RECV_PIN = 7;
