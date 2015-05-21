@@ -40,8 +40,8 @@ var parseSerialData = function(dataString, tagArray)
     var split = dataString.split(tag);
     var value = split[1];
     dataString = split[2];
-  console.log(tag + ":" + value); // this should be output+=...
-}
+    console.log(tag + ":" + value); // this should be output+=...
+  }
   // return output;
 };
 
