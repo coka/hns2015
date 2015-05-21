@@ -45,8 +45,6 @@ bool examine_infrared()
 
 bool examine_temparature()
 {
-  int brojac = 0;
-  for (int i = 0; i < 10; i++) { if(abs(TEMP_INC - TEMP) > 2) { brojac++; } }
-  if (brojac > 5) { return true; }
-  else { return false; }
+  if(abs(TEMP_INC - TEMP) > 2) { return true; }
+  return false;
 }
