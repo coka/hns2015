@@ -12,43 +12,41 @@ void examine_treasures()
 
 bool examine_frequency()
 {
-  return true;
-  /*int brojac1 = 0;
-  byte freq[3];
-  for (int i = 0; i < 5; i++)
-  {
-    freq[i] = SAUND;
-    if(freq[1] == freq[2] && freq[2] == freq[3]) { brojac1++; }
-  }
-  if (brojac1 > 3) { return true; }
-  else { return false; }*/
+  return false;
 }
 
 bool examine_ultrasound()
 {
-  return true;
+  return false;
 }
 
 bool examine_magneticField()
 {
-  return true;
+  int brojac1 = 0;
+  long mag[3];
+  for (int i = 0; i < 5; i++)
+  {
+    mag[i] = MAGNET;
+    if(mag[0] == mag[1] && mag[1] == mag[2]) { brojac1++; }
+  }
+  if (brojac1 > 3) { return true; }
+  else { return false; }
 }
 
 bool examine_blinkRate()
 {
-  return true;
+  return false;
 }
 
 bool examine_infrared()
 {
-  return true;
+  return false;
 }
 
 bool examine_temparature()
 {
-  return true;
-  /*int brojac = 0;
+  int brojac = 0;
   for (int i = 0; i < 10; i++) { if(abs(TEMP_INC - TEMP) > 2) { brojac++; } }
   if (brojac > 5) { return true; }
-  else { return false; }*/
+  else { return false; }
 }
