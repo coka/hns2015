@@ -62,9 +62,19 @@ var publishToPubNub = function(messageString)
   });
 };
 
+var tweet_station = function()
+{
+  // TODO
+}
+
 var serialEvent = function(data) // callback argument
 {
   var parsedData = parseSerialData(String(data), tags);
+  // ovde moraš obraditi parsirane podatke
+  // sva logika za kodove koji se šalju ide ovde
+  // npr., moraš da pamtiš RFID, i da registruješ promenu
+  // jer na osnovu toga znaš da li da pozivaš tweet_station()
+  // mislim da old / new RFID-e možeš pamtiti u globalnom var-u (na primer)
   publishToPubNub(parsedData);
 };
 
@@ -79,6 +89,13 @@ serialPort.open(function (error)
 });
 
 // tweet every minute
-/*
- * TODO
- */
+var tweet_summary = function()
+{
+  // TODO
+}
+
+setInterval(function()
+{
+  Date date = new Date();
+  if ( date.getSeconds() === 0 ) { tweet_summary(); }
+}, 1000);
