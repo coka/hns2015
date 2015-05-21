@@ -22,7 +22,11 @@ void STEPS()
 
 void INFRA()
 {
-  if (irrecv.decode(&results)) { irrecv.resume(); }
+  if (irrecv.decode(&results))
+  {
+    irrecv.resume();
+    Serial.println(results.value, HEX);
+  }
 }
 
 void HUMIDITY()
