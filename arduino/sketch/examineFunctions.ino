@@ -24,7 +24,7 @@ bool examine_magneticField()
 {
   int brojac1 = 0;
   long mag[3];
-  for (int i = 0; i < 5; i++)
+  for (int i = 0; i < 3; i++)
   {
     mag[i] = MAGNET;
     if(mag[0] == mag[1] && mag[1] == mag[2]) { brojac1++; }
