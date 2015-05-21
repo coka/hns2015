@@ -62,10 +62,15 @@ var publishToPubNub = function(messageString)
   });
 };
 
-var tweet_station = function()
+var tweet_station = function(tweetStation)
 {
-  // TODO
-}
+  var tweetMsg = {'Checkpoint ' + RFID + 'Time:' + date}; // TODO
+  client.post('statues/update', {statues: tweetMsg )}, function(error,tweet,response){
+    if(error) throw error;
+    console.log(tweet);
+    console.log(response);
+  });
+};
 
 var serialEvent = function(data) // callback argument
 {
@@ -92,6 +97,12 @@ serialPort.open(function (error)
 var tweet_summary = function()
 {
   // TODO
+  var tweetMsgMin = {'You can watch our data stream at freeboard.io/board/L787NR'};
+  client.post('statues/update', {status: tweetMsgMin)}, function(error,tweet,response){
+    if(error) throw error;
+    console.log(tweet);
+    console.log(respose);
+  })
 }
 
 setInterval(function()
