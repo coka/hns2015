@@ -41,7 +41,7 @@ void RFIDI()
 {
   MFRC522::MIFARE_Key key;
   for (byte i = 0; i < 6; i++) { key.keyByte[i] = 0xFF; }
-  // if (!mfrc522.PICC_ReadCardSerial()) { return; }
+  if (!mfrc522.PICC_ReadCardSerial()) { return; }
   for (byte i = 0; i < mfrc522.uid.size; i++) { RFID[i] =(mfrc522.uid.uidByte[i]); }
   mfrc522.PICC_HaltA();
   mfrc522.PCD_StopCrypto1();
