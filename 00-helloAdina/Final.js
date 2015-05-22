@@ -64,7 +64,7 @@ var publishToPubNub = function(messageString)
 
 var tweet_station = function(tweetStation)
 {
-  var tweetMsg = {'Checkpoint ' + RFID + 'Time:' + date}; // TODO
+  var tweetMsg = {'Checkpoint ' + RFID + '\n'+'Time:' + date.toDateString();}; // TODO
   client.post('statues/update', {statues: tweetMsg )}, function(error,tweet,response){
     if(error) throw error;
     console.log(tweet);
