@@ -24,7 +24,7 @@ var PubNub = require('pubnub')
   publish_key   : 'pub-c-b38d8e57-ce7b-4896-9795-db9a2c494e1c',
   subscribe_key : 'sub-c-fcb17716-fefc-11e4-bb05-02ee2ddab7fe'
 });
-var channelName = 'my_channel'
+var channelName = 'sensors'
 PubNub.subscribe
 ({
   channel: channelName,
@@ -32,7 +32,7 @@ PubNub.subscribe
 });
 
 // globals
-var tags = ["TEMP", "KORAK", "INFR", "HUMY", "SOUND", "RFID", "TREASURE"];
+var tags = ["TEMP", "KORAK", "HUMY", "SOUND", "RFID", "TREASURE", "MAGNET", "FREKVENCIJA", "INFRA"];
 
 console.log('Opening a port at '+ port + '...'); // checkpoint
 
