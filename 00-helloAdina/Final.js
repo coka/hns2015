@@ -62,14 +62,18 @@ var publishToPubNub = function(messageString)
   });
 };
 
-var tweet_station = function(tweetStation)
+var tweet_func = function(tweetMsg) {
+  client.post('statuses/update', {status: tweetMsg},  function(error, tweet, response){
+  // console.log(tweet);     // tweet body.
+  // console.log(response);  // raw response object
+`});
+};
+
+var tweet_station = function()
 {
-  var tweetMsg = {'Checkpoint ' + RFID + '\n'+'Time:' + date.toDateString();}; // TODO
-  client.post('statues/update', {statues: tweetMsg )}, function(error,tweet,response){
-    if(error) throw error;
-    console.log(tweet);
-    console.log(response);
-  });
+  Date date = new Date();
+  var tweetMsg = '<RFID> ' + date.toDateString() + ' NoviSadHardnSoft2015 ' + 'B4';
+  tweet_func(tweetMsg);
 };
 
 var serialEvent = function(data) // callback argument
@@ -96,13 +100,8 @@ serialPort.open(function (error)
 // tweet every minute
 var tweet_summary = function()
 {
-  // TODO
-  var tweetMsgMin = {'You can watch our data stream at freeboard.io/board/L787NR'}; // Treba promenuti na live tablu koja ce biti
-  client.post('statues/update', {status: tweetMsgMin)}, function(error,tweet,response){
-    if(error) throw error;
-    console.log(tweet);
-    console.log(respose);
-  })
+  var tweetMsg = {'NoviSadHardnSoft2015 summary at https://freeboard.io/board/PKiKVR'}; // Treba promenuti na live tablu koja ce biti
+  tweet_func(tweetMsg);
 }
 
 setInterval(function()
