@@ -43,10 +43,12 @@ var parseSerialData = function(dataString, tagArray)
   {
     // TODO: parser ignore logic
     var tag = tagArray[i];
-    var split = dataString.split(tag);
+    if (typeof(dataString) === 'undefined') {
+      var split = dataString.split(tag);
     var value = split[1];
     dataString = split[2];
     output[tag] = value;
+  }
   }
   return output;
 };
@@ -63,15 +65,15 @@ var publishToPubNub = function(messageString)
 };
 
 var tweet_func = function(tweetMsg) {
-  client.post('statuses/update', {status: tweetMsg},  function(error, tweet, response){
+  twitterClient.post('statuses/update', {status: tweetMsg},  function(error, tweet, response){
   // console.log(tweet);     // tweet body.
   // console.log(response);  // raw response object
-`});
+  });
 };
 
 var tweet_station = function()
 {
-  Date date = new Date();
+  var date = new Date();
   var tweetMsg = '<RFID> ' + date.toDateString() + ' NoviSadHardnSoft2015 ' + 'B4';
   tweet_func(tweetMsg);
 };
@@ -100,12 +102,12 @@ serialPort.open(function (error)
 // tweet every minute
 var tweet_summary = function()
 {
-  var tweetMsg = {'NoviSadHardnSoft2015 summary at https://freeboard.io/board/PKiKVR'}; // Treba promenuti na live tablu koja ce biti
+  var tweetMsg = 'NoviSadHardnSoft2015 summary at https://freeboard.io/board/PKiKVR'; // Treba promenuti na live tablu koja ce biti
   tweet_func(tweetMsg);
 }
 
 setInterval(function()
 {
-  Date date = new Date();
+  var date = new Date();
   if ( date.getSeconds() === 0 ) { tweet_summary(); }
 }, 1000);
